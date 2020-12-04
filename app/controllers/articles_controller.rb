@@ -1,9 +1,10 @@
 class ArticlesController < ApplicationController
 
   # This performs this action before we do anything for any of the methods/actions
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: [:show, :edit, :update, :destroy, :preview]
 
   def show
+    puts params
   end
 
   def index
@@ -39,6 +40,10 @@ class ArticlesController < ApplicationController
   def destroy
     @article.destroy
     redirect_to articles_path
+  end
+
+  def preview
+
   end
 
   private

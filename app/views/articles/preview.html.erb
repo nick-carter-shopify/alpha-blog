@@ -1,0 +1,6 @@
+<h1>Preview of Article</h1>
+
+<h3><%= @article.title %></h3>
+<p><%= @article.description[0, 10].concat("...") %></p>
+
+<p><%= link_to 'Read full article', article_path(@article)%></p>

@@ -1,5 +1,11 @@
-<h1>This is the Home page</h1>
-
-<p><%= link_to 'About us', about_path %></p>
-
-<p><%= link_to 'Articles', articles_path %></p>
+<div class="container" id="home-container">
+  <div class="jumbotron text-center text-white">
+    <h1 class="display-4">Welcome to Alpha Blog</h1>
+    <p class="lead home-text">Home of the best blogs on the internet!</p>
+    <hr class="my-4">
+    <p class="lead">
+    <%= link_to 'About Us', about_path, class: "btn btn-success btn-lg" %>
+    <%= link_to 'Articles', articles_path, class: "btn btn-success btn-lg" %>
+    </p>
+  </div>
+</div>

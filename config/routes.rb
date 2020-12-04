@@ -6,6 +6,12 @@ Rails.application.routes.draw do
 
   # this will give us all of the routes we need for articles
   # index, create, new, edit, show
-  resources :articles, only: [:show, :index, :new, :create, :edit, :update, :destroy]
+  # resources :articles, only: [:show, :index, :new, :create, :edit, :update, :destroy]
+
+  resources :articles do
+    member do
+      get 'preview'
+    end
+  end
 
 end
