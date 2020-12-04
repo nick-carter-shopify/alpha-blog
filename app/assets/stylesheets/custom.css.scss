@@ -3,11 +3,11 @@
 html,
 body {
   height: 100%;
-  background-color: #dddddd;
 }
 
 #page-content {
   flex: 1 0 auto;
+  background-color: #dddddd;
 }
 
 #sticky-footer {
@@ -21,6 +21,12 @@ body {
 
   .nav-link {
     color: #fff !important;
+  }
+
+  .dropdown-menu {
+    .nav-link {
+      color: #000 !important;
+    }
   }
 
   #logo {
@@ -43,3 +49,6 @@ body {
   height: 425px;
 }
 
+.card-title .card-title-link {
+  color: #03ad00;
+}
