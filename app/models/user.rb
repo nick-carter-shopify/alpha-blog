@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  
+  # Set up association - user has many articles
+  has_many :articles
+
   # validation
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   INVALID_EMAIL_MESSAGE = "Must be valid email address"
