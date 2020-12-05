@@ -1,5 +1,9 @@
 class User < ApplicationRecord
   
+  # Before save method
+  # downcase all email address before saving
+  before_save { self.email = email.downcase }
+
   # Set up association - user has many articles
   has_many :articles
 
@@ -14,4 +18,12 @@ class User < ApplicationRecord
                     length: { maximum: 105 }, 
                     uniqueness: { case_sensitive: false }, 
                     format: { with: VALID_EMAIL_REGEX, message: INVALID_EMAIL_MESSAGE }
+
+  # Add secure password functionality
+  has_secure_password
+
+  def to_s
+    "#{self.class.name.downcase}"
+  end
+     
 end
