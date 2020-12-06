@@ -1,0 +1,30 @@
+<div class="container mb-4">
+  <% @articles.each do |article| %>
+    <div class="row justify-content-md-center">
+      <div class="col-8 mt-4">
+        <div class="card text-center shadow rounded">
+          <div class="card-header font-italic">
+          <% if article.user %>
+          <%= link_to article.user.username, user_path(article.user), class: 'card-title-link' %>
+          <% else %>
+           Anonymous
+          <% end %>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">
+            <%= link_to article.title, article_path(article), class: 'card-title-link' %>
+            </h5>
+            <p class="card-text"><%= article.description %></p>
+            <%= link_to 'Preview', preview_article_path(article), class: 'btn btn-outline-primary' %>
+            <%= link_to 'Show', article_path(article), class: 'btn btn-outline-success' %>
+            <%= link_to 'Edit', edit_article_path(article), class: 'btn btn-outline-info' %>
+            <%= link_to 'Delete', article_path(article), class: 'btn btn-outline-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+          </div>
+          <div class="card-footer text-muted">
+            <small>Created <%= time_ago_in_words(article.created_at) %>, edited <%= time_ago_in_words(article.updated_at) %></small> 
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

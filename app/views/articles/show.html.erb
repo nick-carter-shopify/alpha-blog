@@ -8,6 +8,11 @@
             By <%= @article.user.username %>
             (<%= @article.user.email %>)
           </div>
+          <% if @article.user %>
+          <div class="mt-4">
+           <%= link_to gravatar_for(@article.user, size: 100), user_path(@article.user) %>
+          <% end %>
+          </div>
           <div class="card-body">
             <div class="card-text"><%= simple_format(@article.description) %></div>
             <%= link_to 'Edit', edit_article_path(@article), class: 'btn btn-outline-info' %>

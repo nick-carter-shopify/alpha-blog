@@ -4,7 +4,6 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy, :preview]
 
   def show
-    puts params
   end
 
   def index
