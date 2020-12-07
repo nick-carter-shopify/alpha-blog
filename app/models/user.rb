@@ -5,7 +5,8 @@ class User < ApplicationRecord
   before_save { self.email = email.downcase }
 
   # Set up association - user has many articles
-  has_many :articles
+  # Destroy any dependents if a user is deleted
+  has_many :articles, dependent: :destroy
 
   # validation
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

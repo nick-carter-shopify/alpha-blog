@@ -1,5 +1,11 @@
 <h1 class="text-center mt-4">Listing all Articles</h1>
 
+<%= render 'layouts/pagination', obj: @articles %>
+
 <%= render 'article' %>
+
+<div class="mb-4">
+<%= render 'layouts/pagination', obj: @articles %>
+</div>
 
 

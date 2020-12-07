@@ -1,5 +1,7 @@
 <h1 class="text-center mt-4">Alpha Bloggers</h1>
 
+<%= render 'layouts/pagination', obj: @users %>
+
 <div class="container mb-4">
   <% @users.each do |user| %>
     <div class="row justify-content-md-center">
@@ -16,7 +18,9 @@
           <div class="card-body">
             <p><%= pluralize(user.articles.count, "article") %></p>
             <%= link_to 'View Profile', user_path(user), class: 'btn btn-outline-success' %>
-            <%= link_to 'Edit Profile', edit_user_path(user), class: 'btn btn-outline-info' %>
+            <% if logged_in? && user == current_user %>
+              <%= link_to 'Edit Profile', edit_user_path(user), class: 'btn btn-outline-info' %>
+            <% end %>
           </div>
           <div class="card-footer text-muted">
             <small>Member for <%= time_ago_in_words(user.created_at) %></small> 
@@ -25,4 +29,7 @@
       </div>
     </div>
   <% end %>
+</div>
+<div class="mb-4">
+<%= render 'layouts/pagination', obj: @users %>
 </div>
